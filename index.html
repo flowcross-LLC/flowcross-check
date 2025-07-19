@@ -3,116 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowCross | Modern Cross-Platform Solution</title>
+    <title>Spaces | Flowcross</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background-color: #000;
+        .space-card:hover .space-image {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+        }
+        .space-image {
+            transition: all 0.3s ease;
+        }
+        .coming-soon {
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon::after {
+            content: "Coming Soon";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #000;
             color: #fff;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #989898, #222222);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .glow-hover:hover {
-            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
-        }
-        .loading-bar {
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #FFFFFF, #080808);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            transition: width 0.3s ease;
+            padding: 2px 30px;
+            font-size: 12px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="loading-bar"></div>
-    
-    <div class="max-w-2xl w-full text-center px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-center mb-8">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-600 flex items-center justify-center">
-                <i class="fas fa-exchange-alt text-white text-2xl"></i>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-semibold flex items-center">
+                <img src="https://cdn.pixabay.com/photo/2025/07/19/16/26/triangle-9723027_960_720.png" alt="Logo" class="h-6 w-6 mr-2">
+                flowcross
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-sm font-medium hover:text-gray-600">Home</a>
+                <a href="#" class="text-sm font-medium hover:text-gray-600">Documentation</a>
+                <a href="#" class="text-sm font-medium hover:text-gray-600">Pricing</a>
+                <a href="#" class="text-sm font-medium hover:text-gray-600">Blog</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+                <button class="hidden md:block text-sm font-medium px-4 py-2 rounded-md hover:bg-gray-50">
+                    Sign In
+                </button>
+                <button class="hidden md:block text-sm font-medium bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+                    Sign Up
+                </button>
             </div>
         </div>
-        
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-            <span class="gradient-text">FlowCross</span>
-        </h1>
-        
-        <p class="text-gray-400 text-lg mb-10 max-w-lg mx-auto">
-            Seamless cross-platform integration for modern workflows. Redirecting you to our platform...
-        </p>
-        
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <a href="https://flowcross.vercel.app/" id="redirectBtn" class="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-600 rounded-full text-white font-medium glow-hover transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
-                <span>Go Now</span>
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-            <a href="https://github.com/flowcross-LLC/flowcross" class="px-8 py-3 border border-gray-800 rounded-full text-white font-medium hover:bg-gray-900 transition-all duration-300 flex items-center justify-center">
-                <span>Learn More</span>
-                <i class="fas fa-book-open ml-2"></i>
-            </a>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Choose Your page</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                
+            </p>
         </div>
-        
-        <div class="text-gray-500 text-sm">
-            <p>You're being redirected to <span class="text-gray-300">flowcross.vercel.app</span></p>
-            <p class="mt-1" id="countdown">in 5 seconds...</p>
-        </div>
-    </div>
-    
-    <div class="absolute bottom-6 left-0 right-0 text-center text-gray-600 text-sm">
-        <p>© 2025 FlowCross. All rights reserved.</p>
-    </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Current Space -->
+            <div class="space-card group">
+                <a href="https://flowcross.space" target="_blank" class="block">
+                    <div class="space-image bg-white border border-gray-200 rounded-xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
+                            <div class="text-center p-6">
+                                <div class="text-2xl font-bold mb-2">flowcross.space</div>
+                                <div class="text-sm text-gray-500">Currently available</div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Flowcross main page</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Our main page with security and launcher downloading
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 rounded-full">Active</span>
+                                <button class="text-sm font-medium text-blue-600 hover:text-blue-800">Visit →</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Coming Soon Space -->
+            <div class="space-card group">
+                <div class="coming-soon space-image bg-white border border-gray-200 rounded-xl overflow-hidden opacity-90">
+                    <div class="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="text-2xl font-bold mb-2">Flowcross preview</div>
+                            <div class="text-sm text-gray-500">Coming soon</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Developer & Preview page</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Specialized environment for developers with advanced tools, APIs and integrations. Launching in 2026.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full">Coming Soon</span>
+                            <button class="text-sm font-medium text-gray-400 cursor-not-allowed">Notify Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-100 mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">flowcross</h3>
+                    <p class="text-gray-600 text-sm">
+                        An next-generation 
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Features</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Pricing</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Roadmap</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Documentation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Guides</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Privacy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900 text-sm">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2025 Flowcross LLC
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gray-600">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-600">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-600">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div> 
+    </footer>
 
     <script>
-        // Loading bar animation
-        const loadingBar = document.querySelector('.loading-bar');
-        setTimeout(() => {
-            loadingBar.style.width = '100%';
-        }, 100);
-        
-        // Countdown and redirect
-        let seconds = 5;
-        const countdownElement = document.getElementById('countdown');
-        const redirectBtn = document.getElementById('redirectBtn');
-        
-        const countdown = setInterval(() => {
-            seconds--;
-            countdownElement.textContent = `in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
-            
-            if (seconds <= 0) {
-                clearInterval(countdown);
-                window.location.href = 'https://flowcross.vercel.app/';
-            }
-        }, 1000);
-        
-        // Immediate redirect on button click
-        redirectBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            loadingBar.style.width = '100%';
-            setTimeout(() => {
-                window.location.href = 'https://flowcross.vercel.app/';
-            }, 300);
+        // Simple hover effect enhancement
+        document.querySelectorAll('.space-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.space-image').classList.add('shadow-lg');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.space-image').classList.remove('shadow-lg');
+            });
         });
-        
-        // Add smooth transitions when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-        
-        // Set initial opacity to 0 for fade-in effect
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
     </script>
 </body>
 </html>
