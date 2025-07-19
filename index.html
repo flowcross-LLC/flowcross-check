@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowCross | Modern Cross-Platform Solution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #989898, #222222);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+        }
+        .loading-bar {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FFFFFF, #080808);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="loading-bar"></div>
+    
+    <div class="max-w-2xl w-full text-center px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center mb-8">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-gray-600 to-gray-600 flex items-center justify-center">
+                <i class="fas fa-exchange-alt text-white text-2xl"></i>
+            </div>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+            <span class="gradient-text">FlowCross</span>
+        </h1>
+        
+        <p class="text-gray-400 text-lg mb-10 max-w-lg mx-auto">
+            Seamless cross-platform integration for modern workflows. Redirecting you to our platform...
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <a href="https://flowcross.vercel.app/" id="redirectBtn" class="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-600 rounded-full text-white font-medium glow-hover transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                <span>Go Now</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="https://github.com/flowcross-LLC/flowcross" class="px-8 py-3 border border-gray-800 rounded-full text-white font-medium hover:bg-gray-900 transition-all duration-300 flex items-center justify-center">
+                <span>Learn More</span>
+                <i class="fas fa-book-open ml-2"></i>
+            </a>
+        </div>
+        
+        <div class="text-gray-500 text-sm">
+            <p>You're being redirected to <span class="text-gray-300">flowcross.vercel.app</span></p>
+            <p class="mt-1" id="countdown">in 5 seconds...</p>
+        </div>
+    </div>
+    
+    <div class="absolute bottom-6 left-0 right-0 text-center text-gray-600 text-sm">
+        <p>© 2025 FlowCross. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Loading bar animation
+        const loadingBar = document.querySelector('.loading-bar');
+        setTimeout(() => {
+            loadingBar.style.width = '100%';
+        }, 100);
+        
+        // Countdown and redirect
+        let seconds = 5;
+        const countdownElement = document.getElementById('countdown');
+        const redirectBtn = document.getElementById('redirectBtn');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = `in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
+            
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'https://flowcross.vercel.app/';
+            }
+        }, 1000);
+        
+        // Immediate redirect on button click
+        redirectBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadingBar.style.width = '100%';
+            setTimeout(() => {
+                window.location.href = 'https://flowcross.vercel.app/';
+            }, 300);
+        });
+        
+        // Add smooth transitions when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // Set initial opacity to 0 for fade-in effect
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+</body>
+</html>
